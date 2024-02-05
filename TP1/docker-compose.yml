@@ -2,9 +2,7 @@ version: '3.7'
 
 services:
   database:
-    build:
-      context: ./database
-      dockerfile: Dockerfile
+    image: "leondumestre/tp-devops-database:1.0"
     ports:
       - "5432:5432"
     networks:
@@ -16,9 +14,7 @@ services:
       - POSTGRES_PASSWORD=pwd
 
   backend:
-      build:
-        context: ./backend
-        dockerfile: Dockerfile
+      image: "leondumestre/tp-devops-backend:1.0"
       ports:
         - "8080:8080"
       networks:
@@ -31,9 +27,7 @@ services:
         - DATABASE_PASSWORD=pwd
 
   httpd:
-      build:
-        context: ./httpd
-        dockerfile: Dockerfile
+      image: "leondumestre/tp-devops-httpd:1.0"
       ports:
         - "80:80"
       networks:
@@ -43,4 +37,3 @@ services:
 
 networks:
     app-network:
-        driver: bridge
