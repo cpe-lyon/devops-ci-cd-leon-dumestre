@@ -9,9 +9,9 @@ docker network create app-network
 ## Postgresql
 
 ```bash
-docker image build . -t tp1-db-img:latest
+docker image build . -t database-img:latest
 
-docker run --rm -p 5432:5432 --network app-network -e POSTGRES_PASSWORD=pwd -e POSTGRES_USER=usr -v /home/leon/Documents/CPE/devops-ci-cd/TP1/database/data:/var/lib/postgresql/data --name tp1-db tp1-db-img:latest
+docker run --rm -p 5432:5432 --network app-network -e POSTGRES_PASSWORD=pwd -e POSTGRES_USER=usr -v /home/leon/Documents/CPE/devops-ci-cd/TP1/database/data:/var/lib/postgresql/data --name database database-img:latest
 ```
 
 ## Adminer
@@ -25,9 +25,9 @@ docker run --network app-network -p 8000:8080 adminer
 ## Backend API
 
 ```bash
-docker image build . -t tp1-backend-img:latest
+docker image build . -t backend-img:latest
 
-docker run --network app-network -p 8080:8080 -e POSTGRES_PASSWORD=pwd -e POSTGRES_USER=usr --name tp1-backend tp1-backend-img:latest
+docker run --network app-network -p 8080:8080 -e POSTGRES_PASSWORD=pwd -e POSTGRES_USER=usr --name backend backend-img:latest
 ```
 
 [Lien Backend API](http://localhost:8080/)
@@ -39,9 +39,9 @@ Cela améliore l'efficacité de stockage, de transfert et renforce la sécurité
 ## Http Server
 
 ```bash
-docker image build . -t tp1-http-server-img:latest
+docker image build . -t httpd-img:latest
 
-docker run --rm -p 80:80 --network app-network --name tp1-http-server tp1-http-server-img:latest
+docker run --rm -p 80:80 --network app-network --name httpd httpd-img:latest
 ```
 
 [Lien Http Server](http://localhost:80/)
