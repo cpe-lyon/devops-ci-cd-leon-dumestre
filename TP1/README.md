@@ -59,7 +59,9 @@ Multiplestage build is a technique to make Docker images smaller. It separates t
 Docker Hub image [here](https://hub.docker.com/repository/docker/leondumestre/tp-devops-httpd)
 
 Builds a Docker image for an HTTP server using the provided Dockerfile.
-Runs a container named `httpd`, exposing port `80` and connecting it to the `app-network`. Additionally, a reverse proxy is implemented to redirect traffic to the Backend API.
+Runs a container named `httpd`, exposing port `80` and connecting it to the `app-network`.
+
+Additionally, a reverse proxy is implemented to redirect traffic to the Backend API. To do this, a custom configuration with reverse proxy (`httpd-reverse-proxy.conf`) is added to the container to overwrite the current configuration.
 
 ```bash
 docker image build . -t httpd-img:latest
