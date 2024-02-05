@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+  database:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    ports:
+      - "5432:5432"
+    networks:
+      - "app-network"
+    volumes:
+      - "/home/leon/Documents/CPE/devops-ci-cd/TP1/database/data:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_USER=usr
+      - POSTGRES_PASSWORD=pwd
+
+  backend:
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      ports:
+        - "8080:8080"
+      networks:
+        - "app-network"
+      depends_on:
+        - "database"
+      environment:
+        - DATABASE_URL=jdbc:postgresql://database:5432/db
+        - DATABASE_USER=usr
+        - DATABASE_PASSWORD=pwd
+
+  httpd:
+      build:
+        context: ./httpd
+        dockerfile: Dockerfile
+      ports:
+        - "80:80"
+      networks:
+        - "app-network"
+      depends_on:
+        - "backend"
+
+networks:
+    app-network:
+        driver: bridge
