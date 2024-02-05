@@ -1,5 +1,7 @@
 # TP1 Devops
 
+[TP link](http://school.pages.takima.io/devops-resources/ch1-discover-docker-tp/)
+
 ## Network
 
 Creates a Docker network named `app-network`. Docker networks allow containers to communicate with each other.
