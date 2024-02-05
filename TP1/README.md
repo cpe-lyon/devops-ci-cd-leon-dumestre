@@ -27,5 +27,5 @@ docker run --network app-network -p 8081:8080 adminer
 ```bash
 docker image build . -t tp1-backend-img:latest
 
-docker run --network app-network -p 8082:8080 tp1-backend-img:latest
+docker run --network app-network -p 8082:8080 -e POSTGRES_PASSWORD=pwd -e POSTGRES_USER=usr tp1-backend-img:latest
 ```
