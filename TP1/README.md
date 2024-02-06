@@ -71,7 +71,7 @@ docker run --rm -p 80:80 --network app-network --name httpd httpd-img:latest
 
 [Http Server link](http://localhost:80/)
 
-## docker-compose
+## Docker Compose
 
 The `docker-compose` file defines 3 containers:
 
@@ -80,3 +80,14 @@ The `docker-compose` file defines 3 containers:
 - **HTTP Server (httpd)**: Custom image for an HTTP server, exposes port 80, connects to the app-network, and depends on the availability of the backend service.
 
 The services are interconnected through the `app-network`. The `depends_on` directive ensures proper startup order, and environment variables are used to configure database connections within the services.
+
+## Docker Hub
+
+At the end of the project, I published the images on Docker Hub after creating a tag locally.
+This made it possible to replace the builds in the docker compose with the remote images.
+
+```bash
+docker tag database leondumestre/tp-devops-database:1.0
+
+docker push leondumestre/tp-devops-database:1.0  
+```
