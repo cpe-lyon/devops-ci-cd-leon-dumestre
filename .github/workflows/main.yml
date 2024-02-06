@@ -24,7 +24,7 @@ jobs:
     needs: install
     runs-on: ubuntu-22.04
     steps:
-    - name: Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4.1.1
 
       - name: Set up JDK 17
@@ -33,7 +33,7 @@ jobs:
           java-version: 17
           distribution: 'temurin'
           architecture: x64
-          
+        
       - name: Build and test with Maven
         run: cd TP1/backend && mvn clean verify
 
