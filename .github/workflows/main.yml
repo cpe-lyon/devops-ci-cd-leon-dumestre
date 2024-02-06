@@ -24,6 +24,13 @@ jobs:
     needs: install
     runs-on: ubuntu-22.04
     steps:
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'temurin'
+          architecture: x64
+
       - name: Build and test with Maven
         run: cd TP1/backend && mvn clean verify
 
