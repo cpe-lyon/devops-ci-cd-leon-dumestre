@@ -19,8 +19,5 @@ jobs:
           distribution: 'temurin'
           architecture: x64
 
-      - name: Change directory to TP1/backend folder
-        run: cd TP1/backend
-
       - name: Build and test with Maven
-        run: mvn clean verify
+        run: cd TP1/backend && mvn clean verify
