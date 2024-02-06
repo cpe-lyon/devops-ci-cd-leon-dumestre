@@ -22,7 +22,6 @@ jobs:
 
   test-backend:
     needs: install
-    extends: install
     runs-on: ubuntu-22.04
     steps:
       - name: Build and test with Maven
@@ -30,7 +29,6 @@ jobs:
 
   sonarcloud:
     needs: install
-    extends: install
     runs-on: ubuntu-22.04
     steps:
       - name: Cache SonarCloud packages
@@ -56,7 +54,6 @@ jobs:
     needs:
       - test-backend
       - sonarcloud
-    extends: install
     runs-on: ubuntu-22.04
 
     steps:
