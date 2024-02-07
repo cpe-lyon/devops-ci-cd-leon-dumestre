@@ -5,4 +5,4 @@
     networks:
       - name: "{{ NETWORK_NAME }}"
     ports:
-      - "8000:80"
+      - "80:80"
