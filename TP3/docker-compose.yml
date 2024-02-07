@@ -27,7 +27,7 @@ services:
       - DATABASE_PASSWORD=pwd
 
   front:
-    image: "leondumestre/tp-devops-front:1.0"
+    image: "leondumestre/tp-devops-frontend:1.0"
     ports:
       - "8000:8000"
     networks:
