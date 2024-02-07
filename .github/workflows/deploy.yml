@@ -1,14 +1,14 @@
 name: CI devops - Deploy
 on:
-  push:
-    branches:
-      - main
-      - develop
-  pull_request:
+  workflow_run:
+    workflows: 'CI devops - Image'
+    branches:  main
+    types: completed
 
 jobs:
   deploy-on-ansible:
     runs-on: ubuntu-22.04
+    if: github.event.workflow_run.conclusion == 'success'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.1.1
@@ -24,4 +24,3 @@ jobs:
           inventory: |
             [all]
             leon.dumestre.takima.cloud
-
