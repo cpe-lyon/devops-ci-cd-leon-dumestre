@@ -29,7 +29,7 @@ services:
   front:
     image: "leondumestre/tp-devops-front:1.0"
     ports:
-      - "8000:80"
+      - "8000:8000"
     networks:
       - "app-network"
     depends_on:

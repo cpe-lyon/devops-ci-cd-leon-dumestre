@@ -1,4 +1,4 @@
-- name: Launch app
+- name: Launch front
   docker_container:
     name: front
     image: "leondumestre/tp-devops-front:1.0"
