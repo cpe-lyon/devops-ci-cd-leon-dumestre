@@ -8,5 +8,5 @@
     - role: create-network
     - role: launch-database
     - role: launch-app
-    #- role: launch-proxy
     - role: launch-front
+    - role: launch-proxy

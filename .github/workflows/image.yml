@@ -20,26 +20,26 @@ jobs:
         uses: docker/build-push-action@v5.1.0
         with:
           context: ./TP1/backend
-          tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-backend:latest
+          tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-backend:1.0
           push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Build image and push database
         uses: docker/build-push-action@v5.1.0
         with:
           context: ./TP1/database
-          tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-database:latest
+          tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-database:1.0
           push: ${{ github.ref == 'refs/heads/main' }}
 
-      - name: Build image and push httpd
+      - name: Build image and push proxy
         uses: docker/build-push-action@v5.1.0
         with:
-          context: ./TP1/httpd
-          tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-httpd:latest
+          context: ./TP3/proxy
+          tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-httpd:1.1
           push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Build image and push front
         uses: docker/build-push-action@v5.1.0
         with:
           context: ./TP3/front
-          tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-front:latest
+          tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-front:1.0
           push: ${{ github.ref == 'refs/heads/main' }}
