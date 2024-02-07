@@ -29,11 +29,21 @@ services:
   front:
     image: "leondumestre/tp-devops-front:1.0"
     ports:
-      - "80:80"
+      - "8000:80"
     networks:
       - "app-network"
     depends_on:
       - "backend"
+
+    proxy:
+      image: "leondumestre/tp-devops-httpd:1.1"
+      ports:
+        - "80:80"
+      networks:
+        - "app-network"
+      depends_on:
+        - "front"
+        - "backend"
 
 networks:
     app-network:

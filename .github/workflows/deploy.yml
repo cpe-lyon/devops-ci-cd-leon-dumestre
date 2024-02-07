@@ -18,6 +18,4 @@ jobs:
         with:
           playbook: TP3/ansible/playbook-deploy.yml
           key: ${{secrets.ANSIBLE_SSH_PRIVATE_KEY}}
-          inventory: |
-            [all]
-            leon.dumestre.takima.cloud
+          inventory: TP3/ansible/hosts

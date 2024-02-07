@@ -9,4 +9,4 @@
     - role: launch-database
     - role: launch-app
     - role: launch-front
-    - role: launch-proxy
+    #- role: launch-proxy
