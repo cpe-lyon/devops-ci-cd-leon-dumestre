@@ -4,7 +4,9 @@
 
   roles:
     #- role: install-docker
+    - role: clean-docker
     - role: create-network
     - role: launch-database
     - role: launch-app
-    - role: launch-proxy
+    #- role: launch-proxy
+    - role: launch-front
