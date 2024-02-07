@@ -3,12 +3,12 @@
   become: true
 
   roles:
-    #- role: install-docker
-    - role: create-network
-    - role: launch-database
-    - role: launch-app
-    - role: launch-front
-    - role: launch-proxy
+    #- install-docker
+    - create-network
+    - launch-database
+    - launch-app
+    - launch-front
+    - launch-proxy
   
   vars:
     ansible_user: "{{ ANSIBLE_USER }}"
