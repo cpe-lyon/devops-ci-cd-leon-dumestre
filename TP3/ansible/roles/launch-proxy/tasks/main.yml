@@ -1,0 +1,8 @@
+- name: Launch proxy
+  docker_container:
+    name: httpd
+    image: "leondumestre/tp-devops-httpd:1.0"
+    networks:
+      - name: app-network
+    ports:
+      - "80:80"

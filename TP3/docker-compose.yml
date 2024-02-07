@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  database:
+    image: "leondumestre/tp-devops-database:1.0"
+    ports:
+      - "5432:5432"
+    networks:
+      - "app-network"
+    volumes:
+      - "./database/data:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_USER=usr
+      - POSTGRES_PASSWORD=pwd
+
+  backend:
+      image: "leondumestre/tp-devops-backend:1.0"
+      ports:
+        - "8080:8080"
+      networks:
+        - "app-network"
+      depends_on:
+        - "database"
+      environment:
+        - DATABASE_URL=jdbc:postgresql://database:5432/db
+        - DATABASE_USER=usr
+        - DATABASE_PASSWORD=pwd
+
+  front:
+      image: "leondumestre/tp-devops-front:1.0"
+      ports:
+        - "80:8080"
+      networks:
+        - "app-network"
+      depends_on:
+        - "backend"
+
+networks:
+    app-network:

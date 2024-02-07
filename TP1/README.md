@@ -47,7 +47,7 @@ Runs a container named `backend`, exposing port `8080`, connecting it to the app
 ```bash
 docker image build . -t backend-img:latest
 
-docker run --network app-network -p 8080:8080 -e POSTGRES_PASSWORD=pwd -e POSTGRES_USER=usr --name backend backend-img:latest
+docker run --network app-network -p 8080:8080 -e DATABASE_URL=jdbc:postgresql://database:5432/db DATABASE_PASSWORD=pwd -e DATABASE_USER=usr --name backend backend-img:latest
 ```
 
 [Backend API link](http://localhost:8080/)
