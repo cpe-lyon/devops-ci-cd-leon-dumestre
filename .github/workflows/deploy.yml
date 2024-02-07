@@ -13,9 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.1.1
 
-      - name: Install Ansible
-        run: sudo apt update && sudo apt install -y ansible
-
       - name: Deploy on Ansible
         uses: dawidd6/action-ansible-playbook@v2
         with:
