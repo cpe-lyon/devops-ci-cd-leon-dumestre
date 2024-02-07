@@ -17,5 +17,8 @@ jobs:
         run: sudo apt update && sudo apt install -y ansible
 
       - name: Deploy on Ansible
-        run: ansible-playbook -i TP3/ansible/inventories/setup.yml TP3/ansible/playbook-deploy.yml
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: TP3/ansible/playbook-deploy.yml
+          key: ${{secrets.ANSIBLE_SSH_PRIVATE_KEY}}
 
