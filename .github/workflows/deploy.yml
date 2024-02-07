@@ -20,4 +20,4 @@ jobs:
           key: ${{secrets.ANSIBLE_SSH_PRIVATE_KEY}}
           inventory: |
             [all]
-            leon.dumestre.takima.cloud
+            ${{secrets.ANSIBLE_URL}}

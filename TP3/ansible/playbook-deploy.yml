@@ -4,7 +4,6 @@
 
   roles:
     #- role: install-docker
-    - role: clean-docker
     - role: create-network
     - role: launch-database
     - role: launch-app
