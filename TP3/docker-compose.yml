@@ -14,26 +14,26 @@ services:
       - POSTGRES_PASSWORD=pwd
 
   backend:
-      image: "leondumestre/tp-devops-backend:1.0"
-      ports:
-        - "8080:8080"
-      networks:
-        - "app-network"
-      depends_on:
-        - "database"
-      environment:
-        - DATABASE_URL=jdbc:postgresql://database:5432/db
-        - DATABASE_USER=usr
-        - DATABASE_PASSWORD=pwd
+    image: "leondumestre/tp-devops-backend:1.0"
+    ports:
+      - "8080:8080"
+    networks:
+      - "app-network"
+    depends_on:
+      - "database"
+    environment:
+      - DATABASE_URL=jdbc:postgresql://database:5432/db
+      - DATABASE_USER=usr
+      - DATABASE_PASSWORD=pwd
 
   front:
-      image: "leondumestre/tp-devops-front:1.0"
-      ports:
-        - "80:8080"
-      networks:
-        - "app-network"
-      depends_on:
-        - "backend"
+    image: "leondumestre/tp-devops-front:1.0"
+    ports:
+      - "80:80"
+    networks:
+      - "app-network"
+    depends_on:
+      - "backend"
 
 networks:
     app-network:
