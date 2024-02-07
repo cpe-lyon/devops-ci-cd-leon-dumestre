@@ -1,8 +1,8 @@
 - name: Launch front
   docker_container:
-    name: front
-    image: "leondumestre/tp-devops-front:1.0"
+    name: "{{ FRONT_CONTAINER_NAME }}"
+    image: "{{ DOCKERHUB_FRONT_IMAGE }}"
     networks:
-      - name: app-network
+      - name: "{{ NETWORK_NAME }}"
     ports:
       - "80:80"

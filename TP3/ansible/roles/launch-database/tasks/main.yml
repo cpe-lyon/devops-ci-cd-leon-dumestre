@@ -1,11 +1,11 @@
 - name: Launch database
   docker_container:
-    name: database
-    image: "leondumestre/tp-devops-database:1.0"
+    name: "{{ DATABASE_CONTAINER_NAME }}"
+    image: "{{ DOCKERHUB_DATABASE_IMAGE }}"
     networks:
-      - name: app-network
+      - name: "{{ NETWORK_NAME }}"
     ports:
       - "5432:5432"
     env:
-      POSTGRES_USER: usr
-      POSTGRES_PASSWORD: pwd
+      POSTGRES_USER: "{{ DATABASE_USER }}"
+      POSTGRES_PASSWORD: "{{ DATABASE_PASSWORD }}"

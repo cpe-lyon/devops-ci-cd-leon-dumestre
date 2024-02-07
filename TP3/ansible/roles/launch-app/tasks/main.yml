@@ -1,12 +1,12 @@
 - name: Launch app
   docker_container:
-    name: backend
-    image: "leondumestre/tp-devops-backend:1.0"
+    name: "{{ APP_CONTAINER_NAME }}"
+    image: "{{ DOCKERHUB_APP_IMAGE }}"
     networks:
-      - name: app-network
+      - name: "{{ NETWORK_NAME }}"
     ports:
       - "8080:8080"
     env:
-      DATABASE_URL: jdbc:postgresql://database:5432/db
-      DATABASE_USER: usr
-      DATABASE_PASSWORD: pwd
+      DATABASE_URL: "{{ DATABASE_URL }}"
+      DATABASE_USER: "{{ DATABASE_USER }}"
+      DATABASE_PASSWORD: "{{ DATABASE_PASSWORD }}"

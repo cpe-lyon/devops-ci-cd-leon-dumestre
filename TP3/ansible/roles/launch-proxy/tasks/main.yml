@@ -1,8 +1,8 @@
 - name: Launch proxy
   docker_container:
-    name: httpd
-    image: "leondumestre/tp-devops-httpd:1.1"
+    name: "{{ PROXY_CONTAINER_NAME }}"
+    image: "{{ DOCKERHUB_PROXY_IMAGE }}"
     networks:
-      - name: app-network
+      - name: "{{ NETWORK_NAME }}"
     ports:
       - "8000:80"
