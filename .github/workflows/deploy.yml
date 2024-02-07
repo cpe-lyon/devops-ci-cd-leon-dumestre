@@ -7,15 +7,15 @@ on:
   pull_request:
 
 jobs:
-  build-and-push-docker-image:
+  deploy-on-ansible:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.1.1
 
+      - name: Install Ansible
+        run: sudo apt update && sudo apt install -y ansible
+
       - name: Deploy on Ansible
-        uses: dawidd6/action-ansible-playbook@v2
-        with:
-          playbook: TP3/ansible/playbook-deploy.yml
-          key: ${{secrets.ANSIBLE_SSH_PRIVATE_KEY}}
+        run: ansible-playbook -i TP3/ansible/inventories/setup.yml TP3/ansible/playbook-deploy.yml
 
