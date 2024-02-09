@@ -4,8 +4,6 @@
     image: "{{ DOCKERHUB_DATABASE_IMAGE }}"
     networks:
       - name: "{{ NETWORK_NAME }}"
-    ports:
-      - "5432:5432"
     env:
       POSTGRES_USER: "{{ DATABASE_USER }}"
       POSTGRES_PASSWORD: "{{ DATABASE_PASSWORD }}"

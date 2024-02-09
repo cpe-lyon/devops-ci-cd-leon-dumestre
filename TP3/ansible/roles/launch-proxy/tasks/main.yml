@@ -4,5 +4,3 @@
     image: "{{ DOCKERHUB_PROXY_IMAGE }}"
     networks:
       - name: "{{ NETWORK_NAME }}"
-    ports:
-      - "8000:80"

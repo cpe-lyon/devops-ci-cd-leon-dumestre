@@ -4,5 +4,3 @@
     image: "{{ DOCKERHUB_FRONT_IMAGE }}"
     networks:
       - name: "{{ NETWORK_NAME }}"
-    ports:
-      - "80:80"
